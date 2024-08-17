@@ -1,4 +1,5 @@
 import { RpsVO } from "../valueobjects/RpsVO";
+import useRockPaperScissors from "../hooks/useRps";
 
 /**
  * Utility functions for Rock-Paper-Scissors game logic.

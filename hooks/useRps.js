@@ -12,6 +12,8 @@ import { Alert } from 'react-native';
 const useRockPaperScissors = () => {
     const [playerChoice, setPlayerChoice] = useState('');
     const [computerChoice, setComputerChoice] = useState('');
+    const [playerWins, setPlayerWins] = useState(0);
+    const [computerWins, setComputerWins] = useState(0);
     const [result, setResult] = useState('');
     const { Rps } = RpsUtil();
 
@@ -28,9 +30,21 @@ const useRockPaperScissors = () => {
         const gameResult = Rps(newRps.choice1, newRps.choice2);
         setResult(gameResult);
         Alert.alert('Round', gameResult)
-    }
 
-    return { playerChoice, computerChoice, result, playGame };
+        if (gameResult === 'Win') {
+            setPlayerWins(prevWins => prevWins + 1);
+        } else if (gameResult === 'Lose') {
+            setComputerWins(prevWins => prevWins + 1);
+        }
+        /**
+     * Resets the scores for both player and computer.
+     */
+    }
+    function resetScores() {
+        setPlayerWins(0);
+        setComputerWins(0);
+    }
+    return { playerChoice, computerChoice, result, playGame, playerWins, computerWins, resetScores };
 }
 
 export default useRockPaperScissors;
