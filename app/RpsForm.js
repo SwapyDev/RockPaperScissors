@@ -35,7 +35,6 @@ export default function RpsForm() {
             <View style={styles.resultContainer}>
                 <Text style={styles.resultLabel}>Your choice: {playerChoice}</Text>
                 <Text style={styles.resultLabel}>Computer's choice: {computerChoice}</Text>
-                <Text style={styles.resultLabel}>Result: {result}</Text>
             </View>
         </View>
     );
@@ -45,6 +44,11 @@ export default function RpsForm() {
  * Styles for the RpsForm component.
  */
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center', 
+        padding: 20,
+    },
     headline: {
         fontWeight: 'bold',
         fontSize: 18,
@@ -59,9 +63,11 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
     resultContainer: {
-        marginTop: 30,
-        borderBottomColor: '#999999',
-        borderBottomWidth: 2,
+        backgroundColor: '#f0f0f0',  
+        padding: 15,                
+        width: '100%',              
+        alignItems: 'center',        
+        marginBottom: 20, 
     },
     buttonContainer: {
         marginTop: 20,
@@ -72,15 +78,20 @@ const styles = StyleSheet.create({
         color: '#666666',
     },
     resultLabel: {
-        color: '#000000',
+        color: '#333',               
+        fontSize: 16,                
+        fontWeight: 'bold', 
     },
     formButton: {
         shadowOffset: 0,
     },
     choiceImage: {
-        width: 100,
-        height: 100,
-        resizeMode: 'contain',
-        padding: 20,
+        width: 80,
+        height: 80,
+        marginHorizontal: 10,
+        resizeMode: 'contain', 
+        borderRadius: 10, 
+        borderWidth: 2, 
+        borderColor: '#ccc', 
     },
 });
